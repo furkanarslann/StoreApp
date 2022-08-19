@@ -1,26 +1,13 @@
 import { View, Text, FlatList, ActivityIndicator } from "react-native";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Config from "react-native-config";
-import axios from "axios";
 import Product from "../../components/Product";
+import useFetch from "../../hooks/useFetch";
 
 const Products = () => {
-  const [productList, setProductList] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const fetchData = () => {
-    axios
-      .get(Config.API_URL)
-      .then((response) => {
-        setLoading(false);
-        setProductList(response.data);
-      })
-      .catch((e) => setError(e.message));
-  };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const { loading, data, error } = useFetch(Config.API_URL);
+  // sırası farketmez 
 
   const renderProduct = ({ item }) => <Product product={item} />;
 
@@ -58,7 +45,7 @@ const Products = () => {
         </View>
       ) : (
         <FlatList
-          data={productList}
+          data={data}
           renderItem={renderProduct}
           numColumns={2}
         />
