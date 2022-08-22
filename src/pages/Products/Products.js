@@ -1,54 +1,41 @@
 import { View, Text, FlatList, ActivityIndicator } from "react-native";
 import React from "react";
 import Config from "react-native-config";
-import Product from "../../components/Product";
+import Product from "../../components/Product/Product";
 import useFetch from "../../hooks/useFetch";
+import Loading from "../../components/Loading/Loading";
+import Error from "../../components/Error/Error";
 
-const Products = () => {
-
+const Products = ({ navigation }) => {
   const { loading, data, error } = useFetch(Config.API_URL);
-  // sırası farketmez 
-
-  const renderProduct = ({ item }) => <Product product={item} />;
+  console.log(data);
+  // sırası farketmez
+  const handleSelect = (id) => {
+    navigation.navigate("DetailsPage", { id });
+  };
+  const renderProduct = ({ item }) => (
+    <Product product={item} onSelect={() => handleSelect(item.id)} />
+  );
 
   if (error) {
     return (
-      <View style={{ justifyContent: "center", flex: 1 }}>
-        <Text
-          style={{
-            backgroundColor: "#D9D9D9CD",
-            color: "red",
-            fontWeight: "bold",
-            textAlign: "center",
-          }}
-        >
-          {error}
-        </Text>
+      <View style={{ flex: 1 }}>
+        <Error message={error} />
       </View>
     );
   }
   return (
-    <View style={{ flex: 1, justifyContent: "center" }}>
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "space-between",
+        backgroundColor: "#F1F1F1",
+      }}
+    >
       {loading ? (
-        <View style={{ alignItems: "center" }}>
-          <ActivityIndicator size={"large"} color="#6998D9" />
-          <Text
-            style={{
-              fontWeight: "400",
-              color: "grey",
-              fontSize: 13,
-              marginTop: 5,
-            }}
-          >
-            Products are loading please wait
-          </Text>
-        </View>
+        <Loading />
       ) : (
-        <FlatList
-          data={data}
-          renderItem={renderProduct}
-          numColumns={2}
-        />
+        <FlatList data={data} renderItem={renderProduct} numColumns={2} />
       )}
     </View>
   );

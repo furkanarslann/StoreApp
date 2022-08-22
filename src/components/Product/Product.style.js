@@ -8,9 +8,17 @@ const styles = StyleSheet.create({
     height: 300,
     alignItems: "center",
     justifyContent: "space-between",
-    //backgroundColor: "#FEFEFE",
-    elevation: 5,
+    backgroundColor: "#FEFEFE",
     borderRadius: 8,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
   },
   title: { fontWeight: "300", textAlign: "center" },
   image: {
