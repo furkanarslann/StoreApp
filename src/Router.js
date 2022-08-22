@@ -7,6 +7,7 @@ import Products from "./pages/Products/Products";
 import Details from "./pages/Details/Details";
 import Config from "react-native-config";
 import CartButton from "./components/CartButton/CartButton";
+import Cart from "./pages/Cart/Cart";
 
 const Stack = createNativeStackNavigator();
 
@@ -36,6 +37,17 @@ export default function Router() {
             headerTintColor: "#3f51b5",
             headerShadowVisible: false,
             headerRight: () => <CartButton />,
+          }}
+        />
+        <Stack.Screen
+          name="CartPage"
+          component={Cart}
+          options={{
+            headerTitle: "",
+            headerStyle: { backgroundColor: "#EEEEEE" },
+            statusBarStyle: "dark",
+            headerTintColor: "#3f51b5",
+            headerShadowVisible: false,
           }}
         />
       </Stack.Navigator>

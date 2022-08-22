@@ -13,6 +13,8 @@ const Products = ({ navigation }) => {
   const handleSelect = (id) => {
     navigation.navigate("DetailsPage", { id });
   };
+
+
   const renderProduct = ({ item }) => (
     <Product product={item} onSelect={() => handleSelect(item.id)} />
   );
