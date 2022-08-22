@@ -14,6 +14,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { increment } from "../../redux/slices/CounterSlice";
+import { updateCartList } from "../../redux/slices/CartSlice";
 
 const Details = ({ navigation, route }) => {
   const { loading, data, error } = useFetch(
@@ -28,11 +29,16 @@ const Details = ({ navigation, route }) => {
   const count = data.rating?.count;
   const description = data.description;
   const price = data.price;
-
+  const product = {
+    image,
+    title,
+    price,
+  };
   const dispatch = useDispatch();
-
   const addToCart = () => {
     dispatch(increment());
+    dispatch(updateCartList(product));
+    
   };
 
   return (

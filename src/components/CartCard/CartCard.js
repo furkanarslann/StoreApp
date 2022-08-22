@@ -2,19 +2,20 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import styles from "./CartCard.style";
 
-const CartCard = () => {
+const CartCard = ({ product }) => {
+  console.log(product);
   return (
     <View style={styles.container}>
       <Image
         source={{
-          uri: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+          uri: product?.image,
         }}
         style={styles.left_box}
       />
       <View style={styles.right_box}>
-        <Text style={styles.title}>Title</Text>
+        <Text style={styles.title}>{product?.title}</Text>
         <View style={styles.right_bottom_box}>
-          <Text style={styles.price}>139$</Text>
+          <Text style={styles.price}>{product?.price}$</Text>
           <View style={styles.amountBox}>
             <TouchableOpacity style={styles.button}>
               <Text style={{ fontWeight: "bold" }}> - </Text>
