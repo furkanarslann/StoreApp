@@ -8,7 +8,7 @@ import Error from "../../components/Error/Error";
 
 const Products = ({ navigation }) => {
   const { loading, data, error } = useFetch(Config.API_URL);
-  console.log(data);
+  // console.log(data);
   // sırası farketmez
   const handleSelect = (id) => {
     navigation.navigate("DetailsPage", { id });

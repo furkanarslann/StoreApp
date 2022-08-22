@@ -6,12 +6,11 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Products from "./pages/Products/Products";
 import Details from "./pages/Details/Details";
 import Config from "react-native-config";
-import { Ionicons } from "@expo/vector-icons";
+import CartButton from "./components/CartButton/CartButton";
 
 const Stack = createNativeStackNavigator();
 
-export default function Router({ navigation }) {
-  //const navigation = useNavigation();
+export default function Router() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -24,6 +23,7 @@ export default function Router({ navigation }) {
             headerStyle: { backgroundColor: "#D9DDF4" },
             statusBarStyle: "dark",
             headerTitleStyle: { color: "#3f51b5", fontSize: 18 },
+            headerRight: () => <CartButton />,
           }}
         />
         <Stack.Screen
@@ -31,23 +31,14 @@ export default function Router({ navigation }) {
           component={Details}
           options={{
             headerTitle: "",
-            headerStyle: { backgroundColor: "#EEEEEE",  },
+            headerStyle: { backgroundColor: "#EEEEEE" },
             statusBarStyle: "dark",
             headerTintColor: "#3f51b5",
             headerShadowVisible: false,
-            headerRight: () => <Ionicons name="ios-cart-outline" size={30} color="#3f51b5" />
+            headerRight: () => <CartButton />,
           }}
         />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
