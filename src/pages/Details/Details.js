@@ -22,23 +22,27 @@ const Details = ({ navigation, route }) => {
   );
 
   // console.log(data);
-
+  const id = data.id;
   const image = data.image;
   const title = data.title;
   const rate = data.rating?.rate;
   const count = data.rating?.count;
   const description = data.description;
   const price = data.price;
+  const amount = 0;
+
   const product = {
+    id,
     image,
     title,
     price,
+    amount,
   };
+
   const dispatch = useDispatch();
   const addToCart = () => {
     dispatch(increment());
     dispatch(updateCartList(product));
-    
   };
 
   return (
