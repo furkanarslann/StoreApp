@@ -1058,10 +1058,20 @@
   resolved "https://registry.yarnpkg.com/@expo-google-fonts/bungee-outline/-/bungee-outline-0.2.2.tgz#ef64d53143013ffd86a5f3129eb56f397146de17"
   integrity sha512-8qDEl11L2cqLElVaNifsiq+sfRhMEyUXLuv04lm5cqUlmT6V0Q4ROH756jkh7/kX1zAYPClqYgrl19E02sTHgQ==
 
+"@expo-google-fonts/dm-sans@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/dm-sans/-/dm-sans-0.2.2.tgz#66bfead953b9ab03ad029bfc19a882ee1f731416"
+  integrity sha512-N3bBC9igoebddvQ6+0mnmRV3OF0CtzT/NSzrztWZ7cez1oG6MplA/7e1EMKyGGkhdCUNwjqDJOk+ggEzFyz7KQ==
+
 "@expo-google-fonts/pacifico@^0.2.2":
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/@expo-google-fonts/pacifico/-/pacifico-0.2.2.tgz#cfe3b1e57df2ca8223beef81f70e204da565be1b"
   integrity sha512-g3E+9jeYhebOt/6H03irmICZKHKl6B/BvXWIdgKgvw4tJuL0qrfePpjgNKGmxDWmt4HJ7Tq9fj1fdGN3ii9WQQ==
+
+"@expo-google-fonts/roboto@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/roboto/-/roboto-0.2.2.tgz#0a9f4685e8d02bdb0d2d2919c102f531bdb353d4"
+  integrity sha512-qP0oZsR8rTID5T9wEXSt9yCYMnKYKlvIlrJGGpd+t71Obt2J51+51PBpvxd5c8fpABEru3zx6ENmpU9lzwr8zw==
 
 "@expo/bunyan@4.0.0", "@expo/bunyan@^4.0.0":
   version "4.0.0"

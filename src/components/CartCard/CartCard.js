@@ -11,7 +11,7 @@ import { Ionicons } from "@expo/vector-icons";
 
 const CartCard = ({ product }) => {
   const dispatch = useDispatch();
-  const amount = useSelector((state) => state.cart.amount);
+  
   const minusHandler = () => {
     if (product.amount === 1) {
       dispatch(deleteProduct(product));

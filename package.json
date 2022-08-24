@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "@expo-google-fonts/bungee-outline": "^0.2.2",
+    "@expo-google-fonts/dm-sans": "^0.2.2",
     "@expo-google-fonts/pacifico": "^0.2.2",
+    "@expo-google-fonts/roboto": "^0.2.2",
     "@react-navigation/native": "^6.0.11",
     "@react-navigation/native-stack": "^6.7.0",
     "@reduxjs/toolkit": "^1.8.5",

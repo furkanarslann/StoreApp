@@ -6,7 +6,7 @@ const Loading = () => {
   return (
     <>
       <Lottie
-        source={require("../../assets/loading.json")}
+        source={require("../../assets/loadingMain.json")}
         autoPlay
       />
       <Text

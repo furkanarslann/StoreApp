@@ -16,12 +16,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { increment } from "../../redux/slices/CounterSlice";
 import { updateCartList } from "../../redux/slices/CartSlice";
 import DetailLoading from "../../components/DetailLoading/DetailLoading";
+import Error from "../../components/Error/Error";
 
 const Details = ({ navigation, route }) => {
   const { loading, data, error } = useFetch(
     Config.API_URL + "/" + route.params.id
   );
-
+  console.log(error);
   // console.log(data);
   const id = data.id;
   const image = data.image;
@@ -42,9 +43,13 @@ const Details = ({ navigation, route }) => {
 
   const dispatch = useDispatch();
   const addToCart = () => {
-    dispatch(increment());
+   // dispatch(increment());
     dispatch(updateCartList(product));
   };
+
+  if (error) {
+    return <Error message={error} />;
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -61,7 +66,7 @@ const Details = ({ navigation, route }) => {
                 <Text style={styles.title}>{title}</Text>
                 <View style={styles.rating_container}>
                   <Text style={styles.count}>
-                    {count} kişi bu ürünü satın aldı
+                    {count} person bought this
                   </Text>
                   <Text style={styles.rate}>
                     {rate}{" "}

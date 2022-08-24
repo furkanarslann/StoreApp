@@ -14,17 +14,12 @@ const Products = ({ navigation }) => {
     navigation.navigate("DetailsPage", { id });
   };
 
-
   const renderProduct = ({ item }) => (
     <Product product={item} onSelect={() => handleSelect(item.id)} />
   );
 
   if (error) {
-    return (
-      <View style={{ flex: 1 }}>
-        <Error message={error} />
-      </View>
-    );
+    return <Error message={error} />;
   }
   return (
     <View
