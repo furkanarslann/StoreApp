@@ -49,9 +49,13 @@ const cartSlice = createSlice({
         state.cartList.splice(index, 1);
       }
     },
-    calculateTotalPrice(state, action) {
+    incrementTotalPrice(state, action) {
       const price = action.payload;
       state.totalPrice += price;
+    },
+    decrementTotalPrice(state, action) {
+      const price = action.payload;
+      state.totalPrice -= price;
     },
   },
 });
@@ -61,6 +65,7 @@ export const {
   incrementAmount,
   decrementAmount,
   deleteProduct,
-  calculateTotalPrice,
+  incrementTotalPrice,
+  decrementTotalPrice,
 } = cartSlice.actions;
 export default cartSlice.reducer;

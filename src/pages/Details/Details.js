@@ -14,7 +14,10 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { increment } from "../../redux/slices/CounterSlice";
-import { updateCartList } from "../../redux/slices/CartSlice";
+import {
+  updateCartList,
+  incrementTotalPrice,
+} from "../../redux/slices/CartSlice";
 import DetailLoading from "../../components/DetailLoading/DetailLoading";
 import Error from "../../components/Error/Error";
 
@@ -43,8 +46,9 @@ const Details = ({ navigation, route }) => {
 
   const dispatch = useDispatch();
   const addToCart = () => {
-   // dispatch(increment());
+    // dispatch(increment());
     dispatch(updateCartList(product));
+    dispatch(incrementTotalPrice(product?.price));
   };
 
   if (error) {
@@ -65,9 +69,7 @@ const Details = ({ navigation, route }) => {
               <View style={styles.info_container}>
                 <Text style={styles.title}>{title}</Text>
                 <View style={styles.rating_container}>
-                  <Text style={styles.count}>
-                    {count} person bought this
-                  </Text>
+                  <Text style={styles.count}>{count} person bought this</Text>
                   <Text style={styles.rate}>
                     {rate}{" "}
                     <Ionicons name="ios-star-sharp" size={17} color="#3f51b5" />
@@ -86,7 +88,7 @@ const Details = ({ navigation, route }) => {
               </Text>
             </View>
             <TouchableOpacity style={styles.button} onPress={addToCart}>
-              <Text style={styles.button_text}>Sepete Ekle</Text>
+              <Text style={styles.button_text}>Add To Cart</Text>
             </TouchableOpacity>
           </View>
         </>

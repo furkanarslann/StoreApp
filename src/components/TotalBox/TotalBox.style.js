@@ -11,6 +11,14 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
   },
+  left: {
+    justifyContent: "space-between",
+  },
+  total_text: {
+    color: "white",
+    borderBottomWidth: 0.4,
+    borderColor: "#FFFFFF9F",
+  },
   total_price: {
     color: "white",
     fontSize: 24,
