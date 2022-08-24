@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     borderRadius: 10,
   },
-  title: { fontSize: 16, fontWeight: "bold" },
+  title: { fontSize: 16, fontWeight: "400", color: "#3C50C5" },
   right_bottom_box: {
     flexDirection: "row",
     justifyContent: "space-between",

@@ -8,10 +8,25 @@ import Details from "./pages/Details/Details";
 import Config from "react-native-config";
 import CartButton from "./components/CartButton/CartButton";
 import Cart from "./pages/Cart/Cart";
+import { useSelector } from "react-redux";
+import { useFonts } from "expo-font";
+import AppLoading from "expo-app-loading";
+import { Pacifico_400Regular } from "@expo-google-fonts/pacifico";
 
 const Stack = createNativeStackNavigator();
 
 export default function Router() {
+  let fontsLoaded = useFonts({
+    Pacifico: Pacifico_400Regular,
+
+    // Raleway: require("./assets/fonts/Raleway-Regular.ttf"),
+  });
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
+
+  const cartList = useSelector((state) => state.cart.cartList);
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -19,11 +34,15 @@ export default function Router() {
           name="ProductsPage"
           component={Products}
           options={{
-            headerTitle: "Products Page",
+            headerTitle: "Shopping",
             headerTitleAlign: "center",
-            headerStyle: { backgroundColor: "#D9DDF4" },
+            headerStyle: { backgroundColor: "#1F3299" },
             statusBarStyle: "dark",
-            headerTitleStyle: { color: "#3f51b5", fontSize: 18 },
+            headerTitleStyle: {
+              color: "#FFFFFF",
+              fontSize: 18,
+              fontFamily: "Pacifico",
+            },
             headerRight: () => <CartButton />,
           }}
         />
@@ -36,7 +55,7 @@ export default function Router() {
             statusBarStyle: "dark",
             headerTintColor: "#3f51b5",
             headerShadowVisible: false,
-            headerRight: () => <CartButton />,
+            headerRight: () => <CartButton screen={'Details'} />,
           }}
         />
         <Stack.Screen
@@ -48,6 +67,7 @@ export default function Router() {
             statusBarStyle: "dark",
             headerTintColor: "#3f51b5",
             headerShadowVisible: false,
+            headerShown: cartList.length === 0 ? false : true,
           }}
         />
       </Stack.Navigator>

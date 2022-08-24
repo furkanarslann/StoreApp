@@ -15,6 +15,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { increment } from "../../redux/slices/CounterSlice";
 import { updateCartList } from "../../redux/slices/CartSlice";
+import DetailLoading from "../../components/DetailLoading/DetailLoading";
 
 const Details = ({ navigation, route }) => {
   const { loading, data, error } = useFetch(
@@ -47,36 +48,44 @@ const Details = ({ navigation, route }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
-        <View style={styles.top_container}>
-          <Image source={{ uri: image }} style={styles.image} />
-        </View>
-        <View style={styles.bottom_container}>
-          <View style={styles.info_container}>
-            <Text style={styles.title}>{title}</Text>
-            <View style={styles.rating_container}>
-              <Text style={styles.count}>{count} kişi bu ürünü satın aldı</Text>
-              <Text style={styles.rate}>
-                {rate}{" "}
-                <Ionicons name="ios-star-sharp" size={17} color="#3f51b5" />
+      {loading ? (
+        <DetailLoading />
+      ) : (
+        <>
+          <ScrollView>
+            <View style={styles.top_container}>
+              <Image source={{ uri: image }} style={styles.image} />
+            </View>
+            <View style={styles.bottom_container}>
+              <View style={styles.info_container}>
+                <Text style={styles.title}>{title}</Text>
+                <View style={styles.rating_container}>
+                  <Text style={styles.count}>
+                    {count} kişi bu ürünü satın aldı
+                  </Text>
+                  <Text style={styles.rate}>
+                    {rate}{" "}
+                    <Ionicons name="ios-star-sharp" size={17} color="#3f51b5" />
+                  </Text>
+                </View>
+              </View>
+              <View style={styles.description_container}>
+                <Text style={styles.description}>{description}</Text>
+              </View>
+            </View>
+          </ScrollView>
+          <View style={styles.footer}>
+            <View style={styles.price}>
+              <Text style={styles.price_text}>
+                <Ionicons name="pricetags" size={20} color="#3f51b5" /> {price}$
               </Text>
             </View>
+            <TouchableOpacity style={styles.button} onPress={addToCart}>
+              <Text style={styles.button_text}>Sepete Ekle</Text>
+            </TouchableOpacity>
           </View>
-          <View style={styles.description_container}>
-            <Text style={styles.description}>{description}</Text>
-          </View>
-        </View>
-      </ScrollView>
-      <View style={styles.footer}>
-        <View style={styles.price}>
-          <Text style={styles.price_text}>
-            <Ionicons name="pricetags" size={20} color="#3f51b5" /> {price}$
-          </Text>
-        </View>
-        <TouchableOpacity style={styles.button} onPress={addToCart}>
-          <Text style={styles.button_text}>Sepete Ekle</Text>
-        </TouchableOpacity>
-      </View>
+        </>
+      )}
     </SafeAreaView>
   );
 };
