@@ -20,6 +20,7 @@ import {
 } from "../../redux/slices/CartSlice";
 import DetailLoading from "../../components/DetailLoading/DetailLoading";
 import Error from "../../components/Error/Error";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const Details = ({ navigation, route }) => {
   const { loading, data, error } = useFetch(
@@ -88,7 +89,14 @@ const Details = ({ navigation, route }) => {
               </Text>
             </View>
             <TouchableOpacity style={styles.button} onPress={addToCart}>
-              <Text style={styles.button_text}>Add To Cart</Text>
+              <Text style={styles.button_text}>
+                Add To Cart{" "}
+                <MaterialCommunityIcons
+                  name="cart-plus"
+                  size={15}
+                  color="white"
+                />
+              </Text>
             </TouchableOpacity>
           </View>
         </>
