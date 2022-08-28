@@ -47,7 +47,6 @@ const Details = ({ navigation, route }) => {
 
   const dispatch = useDispatch();
   const addToCart = () => {
-    // dispatch(increment());
     dispatch(updateCartList(product));
     dispatch(incrementTotalPrice(product?.price));
   };
@@ -70,7 +69,7 @@ const Details = ({ navigation, route }) => {
               <View style={styles.info_container}>
                 <Text style={styles.title}>{title}</Text>
                 <View style={styles.rating_container}>
-                  <Text style={styles.count}>{count} person bought this</Text>
+                  <Text style={styles.count}>{count} Ratings</Text>
                   <Text style={styles.rate}>
                     {rate}{" "}
                     <Ionicons name="ios-star-sharp" size={17} color="#3f51b5" />

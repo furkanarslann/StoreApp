@@ -5,5 +5,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     flex: 1,
   },
+  
 });
 export default styles;

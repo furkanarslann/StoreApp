@@ -57,6 +57,16 @@ const cartSlice = createSlice({
       const price = action.payload;
       state.totalPrice -= price;
     },
+    deleteWithSwipe(state, action) {
+      const index = action.payload;
+      if (index > -1) {
+        state.cartList.splice(index, 1);
+      }
+    },
+    decrementTotalPriceWithSwipe(state, action) {
+      const value = action.payload;
+      state.totalPrice -= value;
+    },
   },
 });
 
@@ -67,5 +77,7 @@ export const {
   deleteProduct,
   incrementTotalPrice,
   decrementTotalPrice,
+  deleteWithSwipe,
+  decrementTotalPriceWithSwipe,
 } = cartSlice.actions;
 export default cartSlice.reducer;
