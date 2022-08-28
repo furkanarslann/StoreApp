@@ -35,6 +35,9 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 13,
     borderBottomRightRadius: 13,
   },
-  trash: {},
+  trash: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
 });
 export default styles;

@@ -8,30 +8,16 @@ const HiddenItemWithActions = (props) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.leftCorner}></Text>
+      <View style={styles.leftCorner}></View>
       <View style={styles.rightCorner}>
         <TouchableOpacity style={styles.buttonRight_Left} onPress={onClose}>
-          <Animated.View
-            style={[
-              {
-                transform: [
-                  {
-                    scale: swipeAnimatedValue.interpolate({
-                      inputRange: [-90, -45],
-                      outputRange: [1, 0],
-                      extrapolate: "clamp",
-                    }),
-                  },
-                ],
-              },
-            ]}
-          >
-            <Ionicons name="close-circle-outline" size={40} color="white" />
-          </Animated.View>
+          <Ionicons name="close-circle-outline" size={30} color="white" />
+          <Text style={{ color: "white", fontSize: 13 }}>Cancel</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.buttonRight_Right} onPress={onDelete}>
           <Animated.View
             style={[
+              styles.trash,
               {
                 transform: [
                   {
@@ -46,6 +32,7 @@ const HiddenItemWithActions = (props) => {
             ]}
           >
             <Ionicons name="trash-outline" size={30} color="white" />
+            <Text style={{ color: "white", fontSize: 13 }}>Delete</Text>
           </Animated.View>
         </TouchableOpacity>
       </View>

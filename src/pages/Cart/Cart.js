@@ -77,7 +77,7 @@ const Cart = () => {
             renderHiddenItem={renderHiddenItem}
             rightOpenValue={-190}
             disableRightSwipe
-            useAnimatedList
+          /*   onRowDidOpen={onRowDidOpen} */
           />
           <TotalBox />
         </View>
