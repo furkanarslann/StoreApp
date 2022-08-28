@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   },
   left_box: {
     flex: 3,
-    height: 120,
+    height: 100,
     resizeMode: "contain",
   },
   right_box: {
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     borderRadius: 10,
   },
-  title: { fontSize: 16, fontWeight: "400", color: "#3C50C5" },
+  title: { fontSize: 16, fontWeight: "400", color: "#2236A4" },
   right_bottom_box: {
     flexDirection: "row",
     justifyContent: "space-between",

@@ -31,9 +31,11 @@ const CartCard = ({ product }) => {
         style={styles.left_box}
       />
       <View style={styles.right_box}>
-        <Text style={styles.title}>{product?.title}</Text>
+        <Text style={[styles.title, { fontFamily: "Inter_600SemiBold" }]}>
+          {product?.title}
+        </Text>
         <View style={styles.right_bottom_box}>
-          <Text style={styles.price}>
+          <Text style={[styles.price, { fontFamily: "Inter_700Bold" }]}>
             {(product?.price * product?.amount).toFixed(2)}$
           </Text>
           <View style={styles.amountBox}>

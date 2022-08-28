@@ -10,10 +10,8 @@ import React from "react";
 import useFetch from "../../hooks/useFetch";
 import Config from "react-native-config";
 import styles from "./Details.style";
-import { MaterialIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { useDispatch, useSelector } from "react-redux";
-import { increment } from "../../redux/slices/CounterSlice";
 import {
   updateCartList,
   incrementTotalPrice,
@@ -21,8 +19,33 @@ import {
 import DetailLoading from "../../components/DetailLoading/DetailLoading";
 import Error from "../../components/Error/Error";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import {
+  Quicksand_300Light,
+  Quicksand_400Regular,
+  Quicksand_500Medium,
+  Quicksand_600SemiBold,
+  Quicksand_700Bold,
+  useFonts,
+} from "@expo-google-fonts/quicksand";
+import {
+  Inter_100Thin,
+  Inter_200ExtraLight,
+  Inter_300Light,
+  Inter_400Regular,
+  Inter_500Medium,
+  Inter_600SemiBold,
+  Inter_700Bold,
+  Inter_800ExtraBold,
+  Inter_900Black,
+} from "@expo-google-fonts/inter";
 
 const Details = ({ navigation, route }) => {
+  let [fontsLoaded] = useFonts({
+    Quicksand: Quicksand_400Regular,
+    Inter_700Bold: Inter_700Bold,
+    Inter_600SemiBold: Inter_600SemiBold,
+  });
+
   const { loading, data, error } = useFetch(
     Config.API_URL + "/" + route.params.id
   );
@@ -67,9 +90,15 @@ const Details = ({ navigation, route }) => {
             </View>
             <View style={styles.bottom_container}>
               <View style={styles.info_container}>
-                <Text style={styles.title}>{title}</Text>
+                <Text
+                  style={[styles.title, { fontFamily: "Inter_600SemiBold" }]}
+                >
+                  {title}
+                </Text>
                 <View style={styles.rating_container}>
-                  <Text style={styles.count}>{count} Ratings</Text>
+                  <Text style={[styles.count, { fontFamily: "Quicksand" }]}>
+                    {count} Ratings
+                  </Text>
                   <Text style={styles.rate}>
                     {rate}{" "}
                     <Ionicons name="ios-star-sharp" size={17} color="#3f51b5" />
@@ -77,25 +106,33 @@ const Details = ({ navigation, route }) => {
                 </View>
               </View>
               <View style={styles.description_container}>
-                <Text style={styles.description}>{description}</Text>
+                <Text
+                  style={[styles.description, { fontFamily: "Inter_300Light" }]}
+                >
+                  {description}
+                </Text>
               </View>
             </View>
           </ScrollView>
           <View style={styles.footer}>
             <View style={styles.price}>
-              <Text style={styles.price_text}>
+              <Text
+                style={[styles.price_text, { fontFamily: "Inter_700Bold" }]}
+              >
                 <Ionicons name="pricetags" size={20} color="#3f51b5" /> {price}$
               </Text>
             </View>
             <TouchableOpacity style={styles.button} onPress={addToCart}>
-              <Text style={styles.button_text}>
-                Add To Cart{" "}
-                <MaterialCommunityIcons
-                  name="cart-plus"
-                  size={15}
-                  color="white"
-                />
+              <Text
+                style={[styles.button_text, { fontFamily: "Quciksand_500" }]}
+              >
+                Add To Cart
               </Text>
+              <MaterialCommunityIcons
+                name="cart-plus"
+                size={19}
+                color="white"
+              />
             </TouchableOpacity>
           </View>
         </>

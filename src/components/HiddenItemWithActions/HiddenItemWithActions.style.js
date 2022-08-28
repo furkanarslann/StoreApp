@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     flex: 1,
-    backgroundColor: "#DBDBDBC5",
+    backgroundColor: "#eeeeee",
     marginHorizontal: 10,
     marginVertical: 5,
     justifyContent: "space-between",
@@ -35,8 +35,6 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 13,
     borderBottomRightRadius: 13,
   },
-  trash: {
-    
-  },
+  trash: {},
 });
 export default styles;

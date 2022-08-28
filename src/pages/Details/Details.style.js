@@ -45,8 +45,8 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   title: {
-    fontWeight: "bold",
     fontSize: 15,
+    color: "black",
   },
   rating_container: {
     marginTop: 5,
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     paddingTop: 5,
   },
   count: {
-    color: "#434343",
+    color: "#272727",
   },
   rate: {
     color: "#3f51b5",
@@ -71,8 +71,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   description: {
-    fontSize: 17,
-    fontWeight: "300",
+    fontSize: 15,
   },
   footer: {
     backgroundColor: "#D9DDF4",
@@ -84,14 +83,17 @@ const styles = StyleSheet.create({
   },
   price_text: {
     fontSize: 20,
-    fontWeight: "bold",
     color: "#3f51b5",
   },
   button: {
     backgroundColor: "#3f51b5",
     padding: 10,
-    paddingHorizontal: 40,
+    paddingHorizontal: 15,
     borderRadius: 15,
+    width: "55%",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
   },
   button_text: { color: "white" },
 });
