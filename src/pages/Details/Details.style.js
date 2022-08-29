@@ -90,11 +90,11 @@ const styles = StyleSheet.create({
     padding: 10,
     paddingHorizontal: 15,
     borderRadius: 15,
-    width: "55%",
+    width: "50%",
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
+    justifyContent: "space-around",
   },
-  button_text: { color: "white" },
+  button_text: { color: "white", fontSize: 15 },
 });
 export default styles;
