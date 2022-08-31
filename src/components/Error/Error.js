@@ -22,7 +22,7 @@ const Error = ({ message }) => {
   }
   return (
     <View style={{ flex: 1 }}>
-      <Lottie source={require("../../assets/error.json")} autoPlay />
+      <Lottie source={require("../../assets/animations/error.json")} autoPlay />
       <Text
         style={{
           position: "absolute",

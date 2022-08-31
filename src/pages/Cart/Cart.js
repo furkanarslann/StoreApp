@@ -30,10 +30,8 @@ const Cart = () => {
   const renderCartCard = ({ item }) => <CartCard product={item} />;
 
   const closeRow = (rowMap, rowKey) => {
-    console.log("close row calisti ");
     if (rowMap[rowKey]) {
       rowMap[rowKey].closeRow();
-      console.log("close row calisti - if icindeyiz");
     }
   };
 
@@ -50,9 +48,7 @@ const Cart = () => {
   };
 
   const renderHiddenItem = (rowData, rowMap) => {
-    console.log("====================================");
-    console.log(rowData);
-    console.log("====================================");
+
     return (
       <HiddenItemWithActions
         data={rowData}

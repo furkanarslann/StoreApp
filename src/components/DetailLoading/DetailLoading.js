@@ -3,7 +3,10 @@ import React from "react";
 import Lottie from "lottie-react-native";
 const DetailLoading = () => {
   return (
-    <Lottie source={require("../../assets/loadingDetail.json")} autoPlay />
+    <Lottie
+      source={require("../../assets/animations/loadingDetail.json")}
+      autoPlay
+    />
   );
 };
 

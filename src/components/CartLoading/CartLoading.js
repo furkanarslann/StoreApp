@@ -3,7 +3,12 @@ import React from "react";
 import Lottie from "lottie-react-native";
 
 const CartLoading = () => {
-  return <Lottie source={require("../../assets/cartLoading.json")} autoPlay />;
+  return (
+    <Lottie
+      source={require("../../assets/animations/cartLoading.json")}
+      autoPlay
+    />
+  );
 };
 
 export default CartLoading;

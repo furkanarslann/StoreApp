@@ -1,15 +1,20 @@
 import { View, Text, FlatList, ActivityIndicator } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Config from "react-native-config";
 import Product from "../../components/Product/Product";
 import useFetch from "../../hooks/useFetch";
 import Loading from "../../components/Loading/Loading";
 import Error from "../../components/Error/Error";
+import SearchBar from "../../components/SearchBar/SearchBar";
+import CategoryPicker from "../../components/CategoryPicker/CategoryPicker";
 
 const Products = ({ navigation }) => {
   const { loading, data, error } = useFetch(Config.API_URL);
-  // console.log(data);
-  // sırası farketmez
+  const [filteredData, setFilteredData] = useState([]);
+  useEffect(() => {
+    setFilteredData(data);
+  }, [data]);
+
   const handleSelect = (id) => {
     navigation.navigate("DetailsPage", { id });
   };
@@ -32,7 +37,20 @@ const Products = ({ navigation }) => {
       {loading ? (
         <Loading />
       ) : (
-        <FlatList data={data} renderItem={renderProduct} numColumns={2} />
+        <View>
+          <SearchBar
+            placeholder={"What are you looking for?"}
+            setFilteredData={setFilteredData}
+          />
+
+          <FlatList
+            data={filteredData}
+            renderItem={renderProduct}
+            numColumns={2}
+            ListHeaderComponent={<CategoryPicker />}
+            contentContainerStyle={{ paddingBottom: 60 }}
+          />
+        </View>
       )}
     </View>
   );
