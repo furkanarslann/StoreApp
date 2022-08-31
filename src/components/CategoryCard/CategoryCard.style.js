@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   category_box: {
-    marginVertical: 15,
+    marginVertical: 5,
     backgroundColor: "#1A287D",
     borderRadius: 15,
     padding: 5,

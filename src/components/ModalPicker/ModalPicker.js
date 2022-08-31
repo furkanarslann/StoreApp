@@ -14,12 +14,23 @@ import Config from "react-native-config";
 import CategoryCard from "../CategoryCard/CategoryCard";
 
 const ModalPicker = (props) => {
-  const { changeModalVisibility } = props;
+  const { changeModalVisibility, setSelectedCategory } = props;
 
   const { data, loading } = useFetch(Config.API_URL + "/categories");
-  const categories = data.map((item, index) => (
-    <CategoryCard item={item} index={index} />
+  let categories = data.map((item, index) => (
+    <CategoryCard
+      item={item}
+      index={index}
+      setSelectedCategory={setSelectedCategory}
+    />
   ));
+
+  categories.unshift(
+    <CategoryCard
+      item={"All Categories"}
+      setSelectedCategory={setSelectedCategory}
+    />
+  );
 
   return (
     <TouchableOpacity

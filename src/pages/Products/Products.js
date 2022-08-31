@@ -7,12 +7,17 @@ import Loading from "../../components/Loading/Loading";
 import Error from "../../components/Error/Error";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import CategoryPicker from "../../components/CategoryPicker/CategoryPicker";
+import { useDispatch, useSelector } from "react-redux";
+import { setData } from "../../redux/slices/ProductsSlice";
 
 const Products = ({ navigation }) => {
   const { loading, data, error } = useFetch(Config.API_URL);
-  const [filteredData, setFilteredData] = useState([]);
+  // const [filteredData, setFilteredData] = useState([]);
+  const filteredData = useSelector((state) => state.products.data);
+  const dispatch = useDispatch();
   useEffect(() => {
-    setFilteredData(data);
+    dispatch(setData(data));
+    //setFilteredData(data);
   }, [data]);
 
   const handleSelect = (id) => {
@@ -38,10 +43,7 @@ const Products = ({ navigation }) => {
         <Loading />
       ) : (
         <View>
-          <SearchBar
-            placeholder={"What are you looking for?"}
-            setFilteredData={setFilteredData}
-          />
+          <SearchBar placeholder={"What are you looking for?"} />
 
           <FlatList
             data={filteredData}

@@ -18,14 +18,17 @@ const CategoryPicker = () => {
       onPress={() => changeModalVisibility(true)}
     >
       <Text style={styles.category}>{selectedCategory}</Text>
-      <Ionicons name="chevron-down-circle-outline" size={24} color="#1F3299" />
+      <Ionicons name="chevron-down-circle-outline" size={24} color="#3f51b5" />
       <Modal
         transparent={true}
         animationType="fade"
         visible={isModalVisible}
         onRequestClose={() => changeModalVisibility(false)}
       >
-        <ModalPicker changeModalVisibility={changeModalVisibility} />
+        <ModalPicker
+          changeModalVisibility={changeModalVisibility}
+          setSelectedCategory={setSelectedCategory}
+        />
       </Modal>
     </TouchableOpacity>
   );

@@ -9,9 +9,15 @@ const images = [
   require("../../assets/images/women.png"),
 ];
 
-const CategoryCard = ({ item, index }) => {
+const CategoryCard = ({ item, index, setSelectedCategory }) => {
+  console.log(item);
+
+  const filterCategory = () => {
+    setSelectedCategory(item);
+  };
+
   return (
-    <TouchableWithoutFeedback>
+    <TouchableWithoutFeedback onPress={filterCategory}>
       <View style={styles.category_box}>
         <Text style={styles.text}>{item.toUpperCase()}</Text>
         <Image style={styles.image} source={images[index]} />
