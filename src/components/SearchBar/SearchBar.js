@@ -46,13 +46,3 @@ export default function SearchBar({ placeholder }) {
     </View>
   );
 }
-const getURLTrailing = (selectedCategory) => {
-  if (
-    selectedCategory === "Select a category" ||
-    selectedCategory === "All Categories"
-  ) {
-    return "";
-  } else {
-    return "/category/" + selectedCategory;
-  }
-};
