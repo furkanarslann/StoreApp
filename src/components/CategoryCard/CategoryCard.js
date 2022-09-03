@@ -1,6 +1,10 @@
 import { View, Text, TouchableWithoutFeedback, Image } from "react-native";
 import React from "react";
 import styles from "./CategoryCard.style";
+import { setSelectedCategory, setData } from "../../redux/slices/ProductsSlice";
+import { useDispatch, useSelector } from "react-redux";
+import useFetch from "../../hooks/useFetch";
+import Config from "react-native-config";
 
 const images = [
   require("../../assets/images/electronics.png"),
@@ -9,11 +13,12 @@ const images = [
   require("../../assets/images/women.png"),
 ];
 
-const CategoryCard = ({ item, index, setSelectedCategory }) => {
-  console.log(item);
+const CategoryCard = ({ item, index, changeModalVisibility }) => {
+  const dispatch = useDispatch();
 
   const filterCategory = () => {
-    setSelectedCategory(item);
+    dispatch(setSelectedCategory(item));
+    changeModalVisibility(false);
   };
 
   return (
