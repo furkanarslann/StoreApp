@@ -12,6 +12,7 @@ import { useSelector } from "react-redux";
 import { useFonts } from "expo-font";
 import AppLoading from "expo-app-loading";
 import { Pacifico_400Regular } from "@expo-google-fonts/pacifico";
+import Payment from "./pages/Payment/Payment";
 
 const Stack = createNativeStackNavigator();
 
@@ -55,7 +56,7 @@ export default function Router() {
             statusBarStyle: "dark",
             headerTintColor: "#3f51b5",
             headerShadowVisible: false,
-            headerRight: () => <CartButton screen={'Details'} />,
+            headerRight: () => <CartButton screen={"Details"} />,
           }}
         />
         <Stack.Screen
@@ -68,6 +69,17 @@ export default function Router() {
             headerTintColor: "#3f51b5",
             headerShadowVisible: false,
             headerShown: cartList.length === 0 ? false : true,
+          }}
+        />
+        <Stack.Screen
+          name="PaymentPage"
+          component={Payment}
+          options={{
+            headerTitle: "",
+            headerStyle: { backgroundColor: "#FFFFFF" },
+            statusBarStyle: "dark",
+            headerTintColor: "#3f51b5",
+            headerShadowVisible: false,
           }}
         />
       </Stack.Navigator>

@@ -95,6 +95,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-around",
   },
-  button_text: { color: "white", fontSize: 15 },
+  button_text: { color: "white", fontSize: 14 },
 });
 export default styles;

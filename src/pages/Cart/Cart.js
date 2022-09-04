@@ -65,7 +65,6 @@ const Cart = () => {
     } else {
       return (
         <View style={styles.container}>
-          {/*  <FlatList data={cartList} renderItem={renderCartCard} /> */}
           <SwipeListView
             data={cartList}
             renderItem={renderCartCard}
