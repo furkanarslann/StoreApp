@@ -34,8 +34,9 @@ const styles = StyleSheet.create({
     marginVertical: 15,
   },
   secondLeft: {
-    flex: 2,
-    paddingRight: 15,
+    flex: 9,
+    marginRight: 15,
+  
   },
   cardHolder: {
     color: "#5A686A",
@@ -50,10 +51,9 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   secondRight: {
-    flex: 1,
-    paddingLeft: 10,
+    flex: 4,
   },
-  validThru: {
+  validThru_text: {
     color: "#5A686A",
     marginLeft: 5,
     marginBottom: 5,
@@ -64,6 +64,8 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     paddingHorizontal: 8,
     padding: 5,
+    flexDirection: "row",
+    justifyContent: "center",
   },
 });
 export default styles;
