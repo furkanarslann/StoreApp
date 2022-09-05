@@ -6,8 +6,8 @@ import { useSelector } from "react-redux";
 const CreditCard = () => {
   const name = useSelector((state) => state.payment.name);
   const number = useSelector((state) => state.payment.number);
-  const date = useSelector((state) => state.payment.date);
-
+  const month = useSelector((state) => state.payment.month);
+  const year = useSelector((state) => state.payment.year);
   return (
     <View style={styles.container}>
       <View style={styles.firstLine_container}>
@@ -33,7 +33,7 @@ const CreditCard = () => {
           <Text style={styles.validThru}>Valid Thru</Text>
           <View style={styles.validThru_Box}>
             <Text style={styles.dateText}>
-              {date.slice(0, 2)} / {date.slice(2, 4)}
+              {month} / {year}
             </Text>
           </View>
         </View>

@@ -2,7 +2,7 @@ import { Dimensions, StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "white",
+    backgroundColor: "#F1F2F7",
     flex: 1,
     padding: 15,
     justifyContent: "center",
@@ -12,14 +12,13 @@ const styles = StyleSheet.create({
     flex: 0.5,
   },
   button_text: {
-    color: "white",
-    fontSize: 18,
+    fontSize: 17,
+    fontWeight: "500",
   },
   button: {
     alignSelf: "center",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#FF7143",
     padding: 15,
     width: "100%",
     borderRadius: 30,

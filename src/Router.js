@@ -76,7 +76,7 @@ export default function Router() {
           component={Payment}
           options={{
             headerTitle: "",
-            headerStyle: { backgroundColor: "#FFFFFF" },
+            headerStyle: { backgroundColor: "#F1F2F7" },
             statusBarStyle: "dark",
             headerTintColor: "#3f51b5",
             headerShadowVisible: false,

@@ -2,65 +2,53 @@ import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import React, { useRef } from "react";
 import styles from "./CardForm.style";
 import { useDispatch, useSelector } from "react-redux";
-import { setDate, setName, setNumber } from "../../redux/slices/PaymentSlice";
+import {
+  setMonth,
+  setName,
+  setNumber,
+  setYear,
+} from "../../redux/slices/PaymentSlice";
 import { useState } from "react";
 import { Picker } from "@react-native-picker/picker";
 
 const CardForm = () => {
   const [txtNumber, setTxtNumber] = useState("");
   const [txtName, setTxtName] = useState("");
-  const [txtDate, setTxtDate] = useState("");
-  const [month, setMonth] = useState("01");
-  const [year, setYear] = useState("22");
+  const [txtMonth, setTxtMonth] = useState("");
+  const [txtYear, setTxtYear] = useState("");
+
   const dispatch = useDispatch();
 
-  /* const name = useSelector((state) => state.payment.name);
-  const number = useSelector((state) => state.payment.number);
-  const date = useSelector((state) => state.payment.date);
-   */
-  const months = [];
-  const years = [];
-  const currentYear = new Date().getFullYear();
-  let index = 0;
-
-  for (let i = 0; i < 12; i++) {
-    if (i < 9) {
-      months[i] = String(i + 1).padStart(2, "0");
-    } else {
-      months[i] = (i + 1).toString();
-    }
-  }
-  for (let i = currentYear; i <= currentYear + 20; i++) {
-    years[index] = i.toString();
-    index++;
-  }
-
-  const pickerRef = useRef();
-
-  function open() {
-    pickerRef.current.focus();
-  }
-
-  function close() {
-    pickerRef.current.blur();
-  }
+  const input_1 = useRef(null);
+  const input_2 = useRef(null);
+  const input_3 = useRef(null);
+  const input_4 = useRef(null);
 
   const handleNumberInput = (text) => {
     setTxtNumber(text);
+
     text === ""
       ? dispatch(setNumber("****************"))
       : dispatch(setNumber(text));
+
+    if (input_1 !== null && text.length === 16) {
+      input_2.current.focus();
+    }
   };
   const handleNameInput = (text) => {
     setTxtName(text);
     text === "" ? dispatch(setName("****")) : dispatch(setName(text));
   };
-  const handleDateInput = (text) => {
-    /*     const month = text.substring(0, 2);
-    const year = text.substring(2, 4); */
-
-    setTxtDate(text);
-    text === "" ? dispatch(setDate("****")) : dispatch(setDate(text));
+  const handleMonthInput = (text) => {
+    setTxtMonth(text);
+    text === "" ? dispatch(setMonth("**")) : dispatch(setMonth(text));
+    if (input_3 !== null && text.length === 2) {
+      input_4.current.focus();
+    }
+  };
+  const handleYearInput = (text) => {
+    setTxtYear(text);
+    text === "" ? dispatch(setYear("**")) : dispatch(setYear(text));
   };
 
   return (
@@ -71,10 +59,13 @@ const CardForm = () => {
           <View style={styles.cardNumber_inputBox}>
             <TextInput
               maxLength={16}
+              ref={input_1}
               keyboardType="number-pad"
               style={styles.input}
               onChangeText={(text) => handleNumberInput(text)}
               value={txtNumber}
+              onSubmitEditing={() => input_2.current.focus()}
+              placeholder={"Enter your card number"}
             />
           </View>
         </View>
@@ -83,9 +74,12 @@ const CardForm = () => {
             <Text style={styles.cardHolder}>Cardholder Name</Text>
             <View style={styles.cardHolder_inputBox}>
               <TextInput
+                ref={input_2}
                 style={styles.input}
                 onChangeText={(text) => handleNameInput(text)}
-                value={txtName.toUpperCase()}
+                value={txtName}
+                onSubmitEditing={() => input_3.current.focus()}
+                placeholder={"Your name and surname"}
               />
             </View>
           </View>
@@ -93,19 +87,26 @@ const CardForm = () => {
             <Text style={styles.validThru_text}>Valid Thru</Text>
             <View style={styles.validThru_inputBox}>
               <TextInput
+                ref={input_3}
                 maxLength={2}
                 keyboardType="number-pad"
-                style={styles.input}
-                onChangeText={(text) => handleDateInput(text)}
-                value={txtDate}
+                style={[styles.input, styles.input_validThru]}
+                onChangeText={(text) => handleMonthInput(text)}
+                value={txtMonth}
+                onSubmitEditing={() => input_4.current.focus()}
               />
-              <Text style={{ fontSize: 22, alignSelf: "center" }}>/</Text>
+              <Text
+                style={{ fontSize: 18, alignSelf: "center", color: "#8C8C8C" }}
+              >
+                /
+              </Text>
               <TextInput
+                ref={input_4}
                 maxLength={2}
                 keyboardType="number-pad"
-                style={styles.input}
-                onChangeText={(text) => handleDateInput(text)}
-                value={txtDate}
+                style={[styles.input, styles.input_validThru]}
+                onChangeText={(text) => handleYearInput(text)}
+                value={txtYear}
               />
             </View>
           </View>

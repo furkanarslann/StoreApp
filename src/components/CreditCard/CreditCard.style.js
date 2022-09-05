@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: "space-between",
     padding: 15,
-    backgroundColor: "#343EAF",
+    backgroundColor: "#262F91",
     borderRadius: 15,
     shadowColor: "#000",
     shadowOffset: {
@@ -17,8 +17,8 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   chipImage: {
-    width: 80,
-    height: 80,
+    width: 70,
+    height: 70,
     resizeMode: "contain",
     borderWidth: 1,
   },
