@@ -30,7 +30,7 @@ export default function Router() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="PaymentPage">
+      <Stack.Navigator>
         <Stack.Screen
           name="ProductsPage"
           component={Products}

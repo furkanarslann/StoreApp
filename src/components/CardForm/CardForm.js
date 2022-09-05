@@ -94,6 +94,7 @@ const CardForm = () => {
                 onChangeText={(text) => handleMonthInput(text)}
                 value={txtMonth}
                 onSubmitEditing={() => input_4.current.focus()}
+                placeholder={'MM'}
               />
               <Text
                 style={{ fontSize: 18, alignSelf: "center", color: "#8C8C8C" }}
@@ -107,6 +108,7 @@ const CardForm = () => {
                 style={[styles.input, styles.input_validThru]}
                 onChangeText={(text) => handleYearInput(text)}
                 value={txtYear}
+                placeholder={'YY'}
               />
             </View>
           </View>
