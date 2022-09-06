@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity, TextInput, Image } from "react-native";
 import React from "react";
 import styles from "./Payment.style";
-import CreditCard from "../../components/CreditCard/CreditCard";
+import CreditCardFront from "../../components/CreditCard/CreditCardFront";
 import CardForm from "../../components/CardForm/CardForm";
 import { useSelector } from "react-redux";
 import { useState } from "react";
@@ -24,7 +24,9 @@ const Payment = () => {
     name !== "****" &&
     number !== "****************" &&
     month !== "**" &&
-    year !== "**"
+    year !== "**" &&
+    month.length == 2 &&
+    year.length == 2
       ? setActivated(true)
       : setActivated(false);
   }, [name, number, month, year]);
@@ -32,7 +34,7 @@ const Payment = () => {
   const handleNavigation = () => {};
   return (
     <View style={styles.container}>
-      <CreditCard />
+      <CreditCardFront />
       <CardForm />
       <View style={styles.button_container}>
         <TouchableOpacity

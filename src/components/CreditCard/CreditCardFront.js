@@ -1,9 +1,9 @@
 import { View, Text, Image } from "react-native";
 import React from "react";
-import styles from "./CreditCard.style";
+import styles from "./CreditCardFront.style";
 import { useSelector } from "react-redux";
 
-const CreditCard = () => {
+const CreditCardFront = () => {
   const name = useSelector((state) => state.payment.name);
   const number = useSelector((state) => state.payment.number);
   const month = useSelector((state) => state.payment.month);
@@ -42,4 +42,4 @@ const CreditCard = () => {
   );
 };
 
-export default CreditCard;
+export default CreditCardFront;
