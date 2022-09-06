@@ -6,6 +6,7 @@ import CardForm from "../../components/CardForm/CardForm";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useEffect } from "react";
+import CreditCardBack from "../../components/CreditCard/CreditCardBack";
 
 const Payment = () => {
   /*   name: "****",
@@ -19,6 +20,7 @@ const Payment = () => {
   const month = useSelector((state) => state.payment.month);
 
   const [activated, setActivated] = useState(false);
+  const [isFront, setIsFront] = useState(true);
 
   useEffect(() => {
     name !== "****" &&
@@ -31,10 +33,13 @@ const Payment = () => {
       : setActivated(false);
   }, [name, number, month, year]);
 
-  const handleNavigation = () => {};
+  const completePayment = () => {
+    console.log("ödeme tamamlandi kardeşşşş");
+  };
+
   return (
     <View style={styles.container}>
-      <CreditCardFront />
+      {isFront ? <CreditCardFront /> : <CreditCardBack />}
       <CardForm />
       <View style={styles.button_container}>
         <TouchableOpacity
@@ -42,7 +47,7 @@ const Payment = () => {
             styles.button,
             { backgroundColor: activated ? "#FF7143" : "#A9A9A9" },
           ]}
-          onPress={handleNavigation}
+          onPress={completePayment}
           disabled={activated ? false : true}
         >
           <Text
@@ -51,7 +56,7 @@ const Payment = () => {
               { color: activated ? "white" : "#7D7D7D" },
             ]}
           >
-            Next Step
+            Complete Payment
           </Text>
         </TouchableOpacity>
       </View>

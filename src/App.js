@@ -10,7 +10,8 @@ import Payment from "./pages/Payment/Payment";
 const App = () => {
   return (
     <CartProvider>
-      <Router />
+      <Payment />
+      {/* <Router /> */}
     </CartProvider>
   );
 };
