@@ -7,6 +7,7 @@ import {
   setName,
   setNumber,
   setYear,
+  setCVV,
 } from "../../redux/slices/PaymentSlice";
 import { useState } from "react";
 
@@ -16,8 +17,10 @@ const CardForm = ({ setIsFront }) => {
   const [txtMonth, setTxtMonth] = useState("");
   const [txtYear, setTxtYear] = useState("");
   const [txtCvv, setTxtCvv] = useState("");
-  const [isFocused, setIsFocused] = useState(false);
 
+  const [borderBottomColor, setBorderBottomColor] = useState("#DFDFDF");
+  const primary = "#DFDFDF";
+  const secondary = "#2161F5";
   const dispatch = useDispatch();
 
   const input_cardNum = useRef(null);
@@ -51,14 +54,13 @@ const CardForm = ({ setIsFront }) => {
   const handleYearInput = (text) => {
     setTxtYear(text);
     text === "" ? dispatch(setYear("**")) : dispatch(setYear(text));
+    if (input_year !== null && text.length === 2) {
+      input_cvv.current.focus();
+    }
   };
   const handleCvvInput = (text) => {
     setTxtCvv(text);
-    // dispatch
-  };
-  const handleFocus = (bool) => {
-    setIsFront(bool);
-    
+    text === "" ? dispatch(setCVV("***")) : dispatch(setCVV(text));
   };
 
   return (
@@ -67,6 +69,7 @@ const CardForm = ({ setIsFront }) => {
         <Text style={styles.input_header}>Card Number</Text>
         <View style={styles.input_box}>
           <TextInput
+            selectionColor={"#4943AA"}
             maxLength={16}
             ref={input_cardNum}
             keyboardType="number-pad"
@@ -75,22 +78,27 @@ const CardForm = ({ setIsFront }) => {
             value={txtNumber}
             onSubmitEditing={() => input_cardholderName.current.focus()}
             placeholder={"Enter your card number"}
-            onFocus={() => handleFocus(true)}
+            onFocus={() => setBorderBottomColor("#2161F5")}
+            onBlur={() => setBorderBottomColor("#DFDFDF")}
           />
         </View>
       </View>
 
       <View style={styles.secondLine}>
         <Text style={styles.input_header}>Cardholder Name</Text>
-        <View style={styles.input_box}>
+        <View
+          style={[styles.input_box, { borderBottomColor: borderBottomColor }]}
+        >
           <TextInput
+            selectionColor={"#4943AA"}
             ref={input_cardholderName}
-            style={styles.input}
+            style={[styles.input, {}]}
             onChangeText={(text) => handleNameInput(text)}
             value={txtName}
             onSubmitEditing={() => input_month.current.focus()}
             placeholder={"Your name and surname"}
-            onFocus={() => handleFocus(true)}
+            onFocus={() => setBorderBottomColor("#2161F5")}
+            onBlur={() => setBorderBottomColor("#DFDFDF")}
           />
         </View>
       </View>
@@ -100,6 +108,7 @@ const CardForm = ({ setIsFront }) => {
           <Text style={styles.input_header}>Valid Thru</Text>
           <View style={styles.validThru_inputBox}>
             <TextInput
+              selectionColor={"#4943AA"}
               ref={input_month}
               maxLength={2}
               keyboardType="number-pad"
@@ -108,7 +117,8 @@ const CardForm = ({ setIsFront }) => {
               value={txtMonth}
               onSubmitEditing={() => input_year.current.focus()}
               placeholder={"MM"}
-              onFocus={() => handleFocus(true)}
+              onFocus={() => setBorderBottomColor("#2161F5")}
+              onBlur={() => setBorderBottomColor("#DFDFDF")}
             />
             <Text
               style={{
@@ -121,6 +131,7 @@ const CardForm = ({ setIsFront }) => {
               /
             </Text>
             <TextInput
+              selectionColor={"#4943AA"}
               ref={input_year}
               maxLength={2}
               keyboardType="number-pad"
@@ -128,7 +139,8 @@ const CardForm = ({ setIsFront }) => {
               onChangeText={(text) => handleYearInput(text)}
               value={txtYear}
               placeholder={"YY"}
-              onFocus={() => handleFocus(true)}
+              onFocus={() => setBorderBottomColor("#2161F5")}
+              onBlur={() => setBorderBottomColor("#DFDFDF")}
             />
           </View>
         </View>
@@ -136,6 +148,7 @@ const CardForm = ({ setIsFront }) => {
           <Text style={styles.input_header}>Security Code</Text>
           <View style={styles.input_box}>
             <TextInput
+              selectionColor={"#4943AA"}
               style={styles.input}
               keyboardType="number-pad"
               ref={input_cvv}
@@ -143,7 +156,8 @@ const CardForm = ({ setIsFront }) => {
               value={txtCvv}
               onChangeText={(text) => handleCvvInput(text)}
               placeholder={"CVV"}
-              onFocus={() => handleFocus(false)}
+              onFocus={() => setIsFront(false)}
+              onBlur={() => setIsFront(true)}
             />
           </View>
         </View>

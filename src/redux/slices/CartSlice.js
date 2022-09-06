@@ -67,6 +67,10 @@ const cartSlice = createSlice({
       const value = action.payload;
       state.totalPrice -= value;
     },
+    deleteAllItems(state, action) {
+      state.cartList = [];
+      state.totalPrice = 0;
+    },
   },
 });
 
@@ -79,5 +83,6 @@ export const {
   decrementTotalPrice,
   deleteWithSwipe,
   decrementTotalPriceWithSwipe,
+  deleteAllItems,
 } = cartSlice.actions;
 export default cartSlice.reducer;

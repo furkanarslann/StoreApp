@@ -17,7 +17,7 @@ const TotalBox = () => {
         style={styles.button}
         onPress={() => navigation.navigate("PaymentPage")}
       >
-        <Text style={styles.button_text}>Complete Shopping</Text>
+        <Text style={styles.button_text}>Continue To Payment</Text>
       </TouchableOpacity>
     </View>
   );

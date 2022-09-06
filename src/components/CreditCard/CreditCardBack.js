@@ -1,17 +1,22 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import styles from "./CreditCardBack.style";
+import { useSelector } from "react-redux";
 
-const CreditCardBack = () => {
+const CreditCardBack = ({ setIsFront }) => {
+  const cvv = useSelector((state) => state.payment.cvv);
   return (
-    <View style={styles.container}>
-      <View style={styles.thirdRight}>
-        <Text style={styles.validThru}>Valid Thru</Text>
-        <View style={styles.validThru_Box}>
-          <Text style={styles.dateText}>01-23</Text>
+    <TouchableOpacity style={styles.container} onPress={() => setIsFront(true)}>
+      <View style={styles.top}></View>
+      <View style={styles.bottom}>
+        <View style={styles.bottom_right}>
+          <Text style={styles.title}>Security Code</Text>
+          <View style={styles.cvv_box}>
+            <Text style={styles.cvv}>{cvv}</Text>
+          </View>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

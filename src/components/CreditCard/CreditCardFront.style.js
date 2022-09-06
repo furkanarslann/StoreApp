@@ -3,7 +3,7 @@ import { Dimensions, StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   container: {
     justifyContent: "space-between",
-    padding: 15,
+    padding: 20,
     backgroundColor: "#262F91",
     borderRadius: 15,
     shadowColor: "#000",
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
     marginVertical: 10,
   },
-  cardNumberText: { color: "white", fontWeight: "bold", fontSize: 30 },
+  cardNumberText: { color: "white", fontSize: 25 },
   thirdLine_container: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -42,8 +42,7 @@ const styles = StyleSheet.create({
   },
   nameText: {
     color: "white",
-    fontSize: 18,
-    fontWeight: "500",
+    fontSize: 15,
   },
   validThru: {
     color: "white",
@@ -56,8 +55,7 @@ const styles = StyleSheet.create({
   },
   dateText: {
     color: "white",
-    fontSize: 18,
-    fontWeight: "500",
+    fontSize: 15,
   },
 });
 export default styles;

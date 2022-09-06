@@ -11,8 +11,8 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     padding: 5,
     paddingHorizontal: 8,
-    /*     borderColor: "#2161F5",
-    borderBottomWidth: 1, */
+    //   borderColor: "#2161F5",
+  //  borderBottomWidth: 1,
   },
   input_header: {
     color: "#3A3A3A",
@@ -51,8 +51,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     backgroundColor: "#DFDFDF",
     paddingHorizontal: 8,
-/*     borderColor: "#2161F5",
-    borderBottomWidth: 1, */
+  },
+  focused: {
+    borderColor: "#2161F5",
+    borderBottomWidth: 1,
   },
 });
 export default styles;

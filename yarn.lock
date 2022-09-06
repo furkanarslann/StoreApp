@@ -1083,6 +1083,11 @@
   resolved "https://registry.npmjs.org/@expo-google-fonts/roboto/-/roboto-0.2.2.tgz"
   integrity sha512-qP0oZsR8rTID5T9wEXSt9yCYMnKYKlvIlrJGGpd+t71Obt2J51+51PBpvxd5c8fpABEru3zx6ENmpU9lzwr8zw==
 
+"@expo-google-fonts/russo-one@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/russo-one/-/russo-one-0.2.2.tgz#55515590da8eba214935fe16ab457d659f58bc57"
+  integrity sha512-AwuN5sbudaxht5EDiFx7gYU1Ulp+JP8/zT+s74IyP6S3w4LE/ID9qg28ZIkH2xpWzXkbLZqSM/IoOCC6OAt5EA==
+
 "@expo/bunyan@4.0.0", "@expo/bunyan@^4.0.0":
   version "4.0.0"
   resolved "https://registry.npmjs.org/@expo/bunyan/-/bunyan-4.0.0.tgz"

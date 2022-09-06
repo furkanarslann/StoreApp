@@ -27,7 +27,7 @@ export default function Router() {
   }
 
   const cartList = useSelector((state) => state.cart.cartList);
-
+  const completed = useSelector((state) => state.payment.completed);
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -80,6 +80,7 @@ export default function Router() {
             statusBarStyle: "dark",
             headerTintColor: "#3f51b5",
             headerShadowVisible: false,
+            headerShown: completed ? false : true,
           }}
         />
       </Stack.Navigator>

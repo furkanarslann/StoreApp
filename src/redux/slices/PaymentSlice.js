@@ -5,6 +5,8 @@ const initialState = {
   number: "****************",
   month: "**",
   year: "**",
+  cvv: "***",
+  completed: false,
 };
 
 const paymentSlice = createSlice({
@@ -23,8 +25,15 @@ const paymentSlice = createSlice({
     setYear(state, action) {
       state.year = action.payload;
     },
+    setCVV(state, action) {
+      state.cvv = action.payload;
+    },
+    setCompleted(state, action) {
+      state.completed = action.payload;
+    },
   },
 });
 
-export const { setName, setNumber, setMonth, setYear } = paymentSlice.actions;
+export const { setName, setNumber, setMonth, setYear, setCVV, setCompleted } =
+  paymentSlice.actions;
 export default paymentSlice.reducer;
