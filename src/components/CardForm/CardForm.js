@@ -9,14 +9,14 @@ import {
   setYear,
 } from "../../redux/slices/PaymentSlice";
 import { useState } from "react";
-import { Picker } from "@react-native-picker/picker";
 
-const CardForm = () => {
+const CardForm = ({ setIsFront }) => {
   const [txtNumber, setTxtNumber] = useState("");
   const [txtName, setTxtName] = useState("");
   const [txtMonth, setTxtMonth] = useState("");
   const [txtYear, setTxtYear] = useState("");
   const [txtCvv, setTxtCvv] = useState("");
+  const [isFocused, setIsFocused] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -56,6 +56,10 @@ const CardForm = () => {
     setTxtCvv(text);
     // dispatch
   };
+  const handleFocus = (bool) => {
+    setIsFront(bool);
+    
+  };
 
   return (
     <View style={styles.container}>
@@ -71,6 +75,7 @@ const CardForm = () => {
             value={txtNumber}
             onSubmitEditing={() => input_cardholderName.current.focus()}
             placeholder={"Enter your card number"}
+            onFocus={() => handleFocus(true)}
           />
         </View>
       </View>
@@ -85,6 +90,7 @@ const CardForm = () => {
             value={txtName}
             onSubmitEditing={() => input_month.current.focus()}
             placeholder={"Your name and surname"}
+            onFocus={() => handleFocus(true)}
           />
         </View>
       </View>
@@ -102,6 +108,7 @@ const CardForm = () => {
               value={txtMonth}
               onSubmitEditing={() => input_year.current.focus()}
               placeholder={"MM"}
+              onFocus={() => handleFocus(true)}
             />
             <Text
               style={{
@@ -121,6 +128,7 @@ const CardForm = () => {
               onChangeText={(text) => handleYearInput(text)}
               value={txtYear}
               placeholder={"YY"}
+              onFocus={() => handleFocus(true)}
             />
           </View>
         </View>
@@ -135,6 +143,7 @@ const CardForm = () => {
               value={txtCvv}
               onChangeText={(text) => handleCvvInput(text)}
               placeholder={"CVV"}
+              onFocus={() => handleFocus(false)}
             />
           </View>
         </View>

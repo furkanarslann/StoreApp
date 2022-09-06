@@ -40,7 +40,7 @@ const Payment = () => {
   return (
     <View style={styles.container}>
       {isFront ? <CreditCardFront /> : <CreditCardBack />}
-      <CardForm />
+      <CardForm setIsFront={setIsFront} />
       <View style={styles.button_container}>
         <TouchableOpacity
           style={[
