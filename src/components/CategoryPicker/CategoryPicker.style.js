@@ -21,6 +21,6 @@ const styles = StyleSheet.create({
 
     elevation: 5,
   },
-  category: { fontSize: 15, color: "#1A287D" },
+  category: { fontSize: 15, color: "#1A287D", fontFamily: "Inter_400Regular" },
 });
 export default styles;

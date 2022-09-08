@@ -9,15 +9,30 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import CategoryPicker from "../../components/CategoryPicker/CategoryPicker";
 import { useDispatch, useSelector } from "react-redux";
 import { setData } from "../../redux/slices/ProductsSlice";
+import { useFonts } from "expo-font";
+import {
+  Inter_100Thin,
+  Inter_200ExtraLight,
+  Inter_300Light,
+  Inter_400Regular,
+  Inter_500Medium,
+  Inter_600SemiBold,
+  Inter_700Bold,
+  Inter_800ExtraBold,
+  Inter_900Black,
+} from "@expo-google-fonts/inter";
 
 const Products = ({ navigation }) => {
   const { loading, data, error } = useFetch(Config.API_URL);
-  // const [filteredData, setFilteredData] = useState([]);
+  const [fontsLoaded] = useFonts({
+    Inter_300Light: Inter_300Light,
+    Inter_400Regular: Inter_400Regular,
+    Inter_600SemiBold: Inter_600SemiBold,
+  });
   const filteredData = useSelector((state) => state.products.data);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(setData(data));
-    //setFilteredData(data);
   }, [data]);
 
   const handleSelect = (id) => {

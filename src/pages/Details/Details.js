@@ -19,25 +19,8 @@ import {
 import DetailLoading from "../../components/DetailLoading/DetailLoading";
 import Error from "../../components/Error/Error";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import {
-  Quicksand_300Light,
-  Quicksand_400Regular,
-  Quicksand_500Medium,
-  Quicksand_600SemiBold,
-  Quicksand_700Bold,
-  useFonts,
-} from "@expo-google-fonts/quicksand";
-import {
-  Inter_100Thin,
-  Inter_200ExtraLight,
-  Inter_300Light,
-  Inter_400Regular,
-  Inter_500Medium,
-  Inter_600SemiBold,
-  Inter_700Bold,
-  Inter_800ExtraBold,
-  Inter_900Black,
-} from "@expo-google-fonts/inter";
+import { Quicksand_400Regular, useFonts } from "@expo-google-fonts/quicksand";
+import { Inter_600SemiBold, Inter_700Bold } from "@expo-google-fonts/inter";
 
 const Details = ({ navigation, route }) => {
   let [fontsLoaded] = useFonts({
