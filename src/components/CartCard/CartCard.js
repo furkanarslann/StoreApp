@@ -43,7 +43,7 @@ const CartCard = ({ product }) => {
               {product.amount === 1 ? (
                 <Ionicons name="trash-outline" size={18} color="red" />
               ) : (
-                <Text style={{ fontWeight: "bold" }}> - </Text>
+                <Text style={{ fontFamily: "Inter_500Medium" }}> - </Text>
               )}
             </TouchableOpacity>
             <Text style={styles.amount}>{product.amount}</Text>
@@ -54,7 +54,7 @@ const CartCard = ({ product }) => {
                 dispatch(incrementTotalPrice(product?.price));
               }}
             >
-              <Text style={{ fontWeight: "bold" }}> + </Text>
+              <Text style={{ fontFamily: "Inter_500Medium" }}> + </Text>
             </TouchableOpacity>
           </View>
         </View>

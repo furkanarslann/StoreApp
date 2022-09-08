@@ -16,12 +16,23 @@ import {
   deleteWithSwipe,
   decrementTotalPriceWithSwipe,
 } from "../../redux/slices/CartSlice";
-import { renderHiddenItem } from "../../components/CartCard/CartCard";
+import {
+  Inter_100Thin,
+  Inter_200ExtraLight,
+  Inter_300Light,
+  Inter_400Regular,
+  Inter_500Medium,
+  Inter_600SemiBold,
+  Inter_700Bold,
+  Inter_800ExtraBold,
+  Inter_900Black,
+} from "@expo-google-fonts/inter";
 
 const Cart = () => {
   let [fontsLoaded] = useFonts({
     Raleway: require("../../assets/fonts/Raleway-Regular.ttf"),
     Pacifico: Pacifico_400Regular,
+    Inter_500Medium: Inter_500Medium,
   });
 
   const [loading, setLoading] = useState(true);
@@ -48,7 +59,6 @@ const Cart = () => {
   };
 
   const renderHiddenItem = (rowData, rowMap) => {
-
     return (
       <HiddenItemWithActions
         data={rowData}
