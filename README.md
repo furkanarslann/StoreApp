@@ -1,2 +1,2 @@
 # StoreApp
-Store application using fake REST API of fakestoreapi
+Store application using fake REST API of fakestoreapi.com
