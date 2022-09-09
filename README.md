@@ -1,5 +1,5 @@
 # StoreApp
-E-Commerce application using fake REST API of fakestoreapi.com
+* I developed an e-commerce application using React Native and Redux Toolkit for the state management. Also I used REST API of fakestoreapi.com in this project.
 
 Brief introduction of the app:
 
